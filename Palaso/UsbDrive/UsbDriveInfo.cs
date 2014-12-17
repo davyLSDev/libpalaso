@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-
-#if MONO
-using Palaso.UsbDrive.Linux;
-#else
+#if OSX_USB_BLD || !MONO
 using Palaso.UsbDrive.Windows;
+#else
+using Palaso.UsbDrive.Linux;
 #endif
 
 namespace Palaso.UsbDrive
@@ -105,7 +104,8 @@ namespace Palaso.UsbDrive
 
 		public static List<IUsbDriveInfo> GetDrives()
 		{
-#if MONO
+
+#if MONO && !OSX_USB_BLD
 			return UsbDriveInfoUDisks.GetDrives(); // Lucid now uses UDisks, HAL use is deprecated.
 #else
 			return UsbDriveInfoWindows.GetDrives();

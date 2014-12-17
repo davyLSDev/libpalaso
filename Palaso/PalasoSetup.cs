@@ -34,7 +34,7 @@ namespace Palaso
 				return;
 			if (disposing)
 			{
-#if __MonoCS__
+#if __MonoCS__ && !OSX_USB_BLD
 				// Using Palaso.UsbDrive on Linux/Mono results in NDesk spinning up a thread that
 				// continues until NDesk Bus is closed.  Failure to close the thread results in a
 				// program hang when closing.  Closing the system bus allows the thread to close,

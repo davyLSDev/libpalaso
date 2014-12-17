@@ -16,7 +16,7 @@ using Palaso.Reporting;
 using Palaso.WritingSystems;
 using Palaso.UI.WindowsForms.Keyboarding.Interfaces;
 using Palaso.UI.WindowsForms.Keyboarding.InternalInterfaces;
-#if __MonoCS__
+#if __MonoCS__ && !OSX_KBD_BLD
 using Palaso.UI.WindowsForms.Keyboarding.Linux;
 #else
 using Palaso.UI.WindowsForms.Keyboarding.Windows;

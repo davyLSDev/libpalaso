@@ -132,7 +132,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-  <ItemGroup Condition="'$(Configuration)' == 'DebugMono' Or '$(Configuration)' == 'ReleaseMono' ">
+  <ItemGroup Condition="('$(Configuration)' == 'DebugMono' Or '$(Configuration)' == 'ReleaseMono') And !'$(OSX_USB_BLD)'">
     <Reference Include="NDesk.DBus, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f6716e4f9b2ed099, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\commonMono\NDesk.DBus.dll</HintPath>
@@ -319,14 +319,14 @@
     <Compile Include="UiBindings\ICountGiver.cs" />
     <Compile Include="UiBindings\IDisplayStringAdaptor.cs" />
     <Compile Include="UsbDrive\UsbDriveInfo.cs" />
-    <Compile Condition="'$(Configuration)' == 'DebugMono' Or '$(Configuration)' == 'ReleaseMono' " Include="UsbDrive\Linux\IUDiskDevice.cs" />
-    <Compile Condition="'$(Configuration)' == 'DebugMono' Or '$(Configuration)' == 'ReleaseMono' " Include="UsbDrive\Linux\IUDisks.cs" />
-    <Compile Condition="'$(Configuration)' == 'DebugMono' Or '$(Configuration)' == 'ReleaseMono' " Include="UsbDrive\Linux\UDiskDevice.cs" />
-    <Compile Condition="'$(Configuration)' == 'DebugMono' Or '$(Configuration)' == 'ReleaseMono' " Include="UsbDrive\Linux\UDisks.cs" />
-    <Compile Condition="'$(Configuration)' == 'DebugMono' Or '$(Configuration)' == 'ReleaseMono' " Include="UsbDrive\Linux\UsbDriveInfoUDisks.cs" />
-    <Compile Condition="'$(Configuration)' == 'DebugMono' Or '$(Configuration)' == 'ReleaseMono' " Include="UsbDrive\Linux\UsbDriveInfoHAL.cs" />
-    <Compile Condition="'$(Configuration)' == 'Debug' Or '$(Configuration)' == 'Release' " Include="UsbDrive\Windows\UsbDriveInfoWindows.cs" />
-    <Compile Include="IO\FileRelatedStrings.Designer.cs">
+    <Compile Condition="('$(Configuration)' == 'DebugMono' Or '$(Configuration)' == 'ReleaseMono') And !'$(OSX_BLD)'" Include="UsbDrive\Linux\IUDiskDevice.cs" />
+    <Compile Condition="('$(Configuration)' == 'DebugMono' Or '$(Configuration)' == 'ReleaseMono') And !'$(OSX_BLD)'" Include="UsbDrive\Linux\IUDisks.cs" />
+    <Compile Condition="('$(Configuration)' == 'DebugMono' Or '$(Configuration)' == 'ReleaseMono') And !'$(OSX_BLD)'" Include="UsbDrive\Linux\UDiskDevice.cs" />
+    <Compile Condition="('$(Configuration)' == 'DebugMono' Or '$(Configuration)' == 'ReleaseMono') And !'$(OSX_BLD)'" Include="UsbDrive\Linux\UDisks.cs" />
+    <Compile Condition="('$(Configuration)' == 'DebugMono' Or '$(Configuration)' == 'ReleaseMono') And !'$(OSX_BLD)'" Include="UsbDrive\Linux\UsbDriveInfoUDisks.cs" />
+    <Compile Condition="('$(Configuration)' == 'DebugMono' Or '$(Configuration)' == 'ReleaseMono') And !'$(OSX_BLD)'" Include="UsbDrive\Linux\UsbDriveInfoHAL.cs" />
+    <Compile Condition="'$(Configuration)' == 'Debug' Or '$(Configuration)' == 'Release' Or '$(OSX_BLD)' " Include="UsbDrive\Windows\UsbDriveInfoWindows.cs" />
+        <Compile Include="IO\FileRelatedStrings.Designer.cs">
       <DependentUpon>FileRelatedStrings.resx</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
